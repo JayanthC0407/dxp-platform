@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dxp-app
+  labels:
+    pod-security.kubernetes.io/enforce: restricted   # non-root, no privilege escalation, seccomp
+    pod-security.kubernetes.io/audit: restricted

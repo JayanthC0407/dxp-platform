@@ -1,0 +1,3074 @@
+{
+ "meta": {
+  "seededAt": "2026-11-17T16:40:53.526Z"
+ },
+ "widgets": [
+  {
+   "type": "Column",
+   "major": 1,
+   "category": "Layout",
+   "container": true,
+   "events": [],
+   "props": {
+    "padding": {
+     "type": "number",
+     "default": 16
+    },
+    "gap": {
+     "type": "number",
+     "default": 12
+    },
+    "scroll": {
+     "type": "boolean",
+     "default": false
+    },
+    "align": {
+     "type": "enum",
+     "values": [
+      "stretch",
+      "start",
+      "center"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Row",
+   "major": 1,
+   "category": "Layout",
+   "container": true,
+   "events": [],
+   "props": {
+    "gap": {
+     "type": "number",
+     "default": 8
+    },
+    "align": {
+     "type": "enum",
+     "values": [
+      "start",
+      "center",
+      "spaceBetween"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Card",
+   "major": 1,
+   "category": "Layout",
+   "container": true,
+   "events": [
+    "tap"
+   ],
+   "props": {
+    "padding": {
+     "type": "number",
+     "default": 16
+    },
+    "tone": {
+     "type": "enum",
+     "values": [
+      "surface",
+      "primary"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Text",
+   "major": 1,
+   "category": "Display",
+   "events": [],
+   "props": {
+    "text": {
+     "type": "string",
+     "default": "Text"
+    },
+    "style": {
+     "type": "enum",
+     "values": [
+      "headline",
+      "title",
+      "body",
+      "caption",
+      "muted"
+     ]
+    },
+    "align": {
+     "type": "enum",
+     "values": [
+      "start",
+      "center",
+      "end"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Button",
+   "major": 1,
+   "category": "Input",
+   "events": [
+    "tap"
+   ],
+   "props": {
+    "label": {
+     "type": "string",
+     "default": "Button"
+    },
+    "variant": {
+     "type": "enum",
+     "values": [
+      "primary",
+      "secondary",
+      "text"
+     ]
+    },
+    "icon": {
+     "type": "icon"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Banner",
+   "major": 1,
+   "category": "Marketing",
+   "events": [
+    "tap"
+   ],
+   "props": {
+    "title": {
+     "type": "string",
+     "default": "Banner title"
+    },
+    "text": {
+     "type": "string",
+     "default": "Banner text"
+    },
+    "tone": {
+     "type": "enum",
+     "values": [
+      "info",
+      "promo",
+      "warning"
+     ]
+    },
+    "icon": {
+     "type": "icon"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "BalanceCard",
+   "major": 1,
+   "category": "Banking",
+   "events": [
+    "tap"
+   ],
+   "props": {
+    "title": {
+     "type": "string",
+     "default": "Total balance"
+    },
+    "amount": {
+     "type": "string",
+     "default": "0"
+    },
+    "currency": {
+     "type": "string",
+     "default": "KWD"
+    },
+    "subtitle": {
+     "type": "string"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "AccountList",
+   "major": 1,
+   "category": "Banking",
+   "events": [
+    "tap"
+   ],
+   "bindable": [
+    "items"
+   ],
+   "props": {
+    "items": {
+     "type": "binding"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "TxnList",
+   "major": 1,
+   "category": "Banking",
+   "events": [],
+   "bindable": [
+    "items"
+   ],
+   "props": {
+    "items": {
+     "type": "binding"
+    },
+    "limit": {
+     "type": "number",
+     "default": 5
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "QuickActions",
+   "major": 1,
+   "category": "Banking",
+   "events": [],
+   "props": {
+    "items": {
+     "type": "json",
+     "default": [
+      {
+       "label": "Accounts",
+       "icon": "wallet",
+       "action": {
+        "type": "nativeRoute",
+        "route": "/accounts"
+       }
+      }
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "TextField",
+   "major": 1,
+   "category": "Input",
+   "events": [],
+   "props": {
+    "label": {
+     "type": "string",
+     "default": "Label"
+    },
+    "field": {
+     "type": "string",
+     "default": "field"
+    },
+    "placeholder": {
+     "type": "string"
+    },
+    "keyboard": {
+     "type": "enum",
+     "values": [
+      "text",
+      "number"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "AmountField",
+   "major": 1,
+   "category": "Input",
+   "events": [],
+   "props": {
+    "label": {
+     "type": "string",
+     "default": "Amount"
+    },
+    "field": {
+     "type": "string",
+     "default": "amount"
+    },
+    "currency": {
+     "type": "string",
+     "default": "KWD"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "SelectList",
+   "major": 1,
+   "category": "Input",
+   "events": [
+    "tap"
+   ],
+   "bindable": [
+    "items"
+   ],
+   "props": {
+    "label": {
+     "type": "string"
+    },
+    "field": {
+     "type": "string",
+     "default": "selection"
+    },
+    "items": {
+     "type": "binding"
+    },
+    "labelKey": {
+     "type": "string",
+     "default": "name"
+    },
+    "subtitleKey": {
+     "type": "string"
+    },
+    "valueKey": {
+     "type": "string",
+     "default": "id"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "OtpInput",
+   "major": 1,
+   "category": "Banking",
+   "events": [],
+   "props": {
+    "field": {
+     "type": "string",
+     "default": "otp"
+    },
+    "length": {
+     "type": "number",
+     "default": 6
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "ReviewSummary",
+   "major": 1,
+   "category": "Banking",
+   "events": [],
+   "props": {
+    "rows": {
+     "type": "json",
+     "default": [
+      {
+       "label": "Label",
+       "value": "Value"
+      }
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "ResultPanel",
+   "major": 1,
+   "category": "Banking",
+   "events": [],
+   "props": {
+    "status": {
+     "type": "enum",
+     "values": [
+      "success",
+      "failure"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "default": "Done"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "AppWidget",
+   "major": 1,
+   "category": "App widgets",
+   "events": [],
+   "props": {
+    "name": {
+     "type": "enum",
+     "values": [
+      "retail-accounts",
+      "casa-account-card",
+      "loans-account-card",
+      "loan-summary",
+      "credit-card",
+      "recent-account-transactions",
+      "spend-summary",
+      "quick-links",
+      "offers"
+     ]
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Divider",
+   "major": 1,
+   "category": "Layout",
+   "events": [],
+   "props": {},
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  },
+  {
+   "type": "Spacer",
+   "major": 1,
+   "category": "Layout",
+   "events": [],
+   "props": {
+    "size": {
+     "type": "number",
+     "default": 16
+    }
+   },
+   "version": "1.0.0",
+   "minRuntime": "1.0.0",
+   "status": "active"
+  }
+ ],
+ "items": {
+  "screen": {
+   "home": {
+    "id": "home",
+    "draft": {
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "updatedBy": "maker",
+     "updatedAt": "2026-11-18T06:00:45.655Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "Banner",
+          "props": {
+           "title": "Personal loans made simple",
+           "text": "See your loans and what you can borrow.",
+           "tone": "promo",
+           "icon": "gift"
+          },
+          "on": {
+           "tap": {
+            "type": "nativeRoute",
+            "route": "/accounts/loans"
+           }
+          }
+         },
+         {
+          "type": "QuickActions",
+          "props": {
+           "items": [
+            {
+             "label": "Accounts",
+             "icon": "wallet",
+             "action": {
+              "type": "nativeRoute",
+              "route": "/accounts"
+             }
+            },
+            {
+             "label": "Transfer",
+             "icon": "send",
+             "action": {
+              "type": "nativeRoute",
+              "route": "/transfer"
+             }
+            },
+            {
+             "label": "Cards",
+             "icon": "card",
+             "action": {
+              "type": "nativeRoute",
+              "route": "/cards/credit"
+             }
+            },
+            {
+             "label": "Offers",
+             "icon": "star",
+             "action": {
+              "type": "navigate",
+              "screen": "offers"
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "spend-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         }
+        ]
+       },
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     },
+     {
+      "version": 2,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "spend-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         }
+        ]
+       },
+       "version": 2
+      },
+      "publishedAt": "2026-11-17T16:50:19.015Z",
+      "releaseNo": 2
+     },
+     {
+      "version": 3,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
+          }
+         }
+        ]
+       },
+       "version": 3
+      },
+      "publishedAt": "2026-11-17T16:55:16.115Z",
+      "releaseNo": 3
+     },
+     {
+      "version": 4,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "Text",
+          "props": {
+           "text": "testing"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
+          }
+         }
+        ]
+       },
+       "version": 4
+      },
+      "publishedAt": "2026-11-18T05:14:15.902Z",
+      "releaseNo": 4
+     },
+     {
+      "version": 5,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "Text",
+          "props": {
+           "text": "testing"
+          }
+         },
+         {
+          "type": "AccountList",
+          "props": {},
+          "bind": {
+           "items": "accounts"
+          },
+          "on": {}
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
+          }
+         }
+        ]
+       },
+       "version": 5
+      },
+      "publishedAt": "2026-11-18T05:55:43.033Z",
+      "releaseNo": 5
+     },
+     {
+      "version": 6,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AccountList",
+          "props": {}
+         }
+        ]
+       },
+       "version": 6
+      },
+      "publishedAt": "2026-11-18T06:00:17.257Z",
+      "releaseNo": 6
+     },
+     {
+      "version": 7,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         }
+        ]
+       },
+       "version": 7
+      },
+      "publishedAt": "2026-11-18T06:00:53.513Z",
+      "releaseNo": 7
+     }
+    ]
+   },
+   "offers": {
+    "id": "offers",
+    "draft": {
+     "json": {
+      "id": "offers",
+      "title": "Offers",
+      "data": {},
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 16,
+        "gap": 12,
+        "scroll": true
+       },
+       "children": [
+        {
+         "type": "Text",
+         "props": {
+          "text": "Offers for you",
+          "style": "headline"
+         }
+        },
+        {
+         "type": "Banner",
+         "props": {
+          "title": "Grow your savings",
+          "text": "Open a term deposit from the app.",
+          "tone": "info",
+          "icon": "chart"
+         },
+         "on": {
+          "tap": {
+           "type": "nativeRoute",
+           "route": "/accounts/term-deposits"
+          }
+         }
+        },
+        {
+         "type": "Banner",
+         "props": {
+          "title": "Pay bills on time",
+          "text": "Register your billers once and pay in seconds.",
+          "tone": "promo",
+          "icon": "receipt"
+         },
+         "on": {
+          "tap": {
+           "type": "nativeRoute",
+           "route": "/bills"
+          }
+         }
+        },
+        {
+         "type": "Button",
+         "props": {
+          "label": "View my accounts",
+          "variant": "secondary",
+          "icon": "wallet"
+         },
+         "on": {
+          "tap": {
+           "type": "nativeRoute",
+           "route": "/accounts"
+          }
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "offers",
+       "title": "Offers",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 16,
+         "gap": 12,
+         "scroll": true
+        },
+        "children": [
+         {
+          "type": "Text",
+          "props": {
+           "text": "Offers for you",
+           "style": "headline"
+          }
+         },
+         {
+          "type": "Banner",
+          "props": {
+           "title": "Grow your savings",
+           "text": "Open a term deposit from the app.",
+           "tone": "info",
+           "icon": "chart"
+          },
+          "on": {
+           "tap": {
+            "type": "nativeRoute",
+            "route": "/accounts/term-deposits"
+           }
+          }
+         },
+         {
+          "type": "Banner",
+          "props": {
+           "title": "Pay bills on time",
+           "text": "Register your billers once and pay in seconds.",
+           "tone": "promo",
+           "icon": "receipt"
+          },
+          "on": {
+           "tap": {
+            "type": "nativeRoute",
+            "route": "/bills"
+           }
+          }
+         },
+         {
+          "type": "Button",
+          "props": {
+           "label": "View my accounts",
+           "variant": "secondary",
+           "icon": "wallet"
+          },
+          "on": {
+           "tap": {
+            "type": "nativeRoute",
+            "route": "/accounts"
+           }
+          }
+         }
+        ]
+       },
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   },
+   "my_money": {
+    "id": "my_money",
+    "draft": {
+     "json": {
+      "id": "my_money",
+      "title": "My money",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 16,
+        "gap": 12,
+        "scroll": true
+       },
+       "children": [
+        {
+         "type": "Text",
+         "props": {
+          "text": "Hello, {{customer.firstName}}",
+          "style": "headline"
+         }
+        },
+        {
+         "type": "Text",
+         "props": {
+          "text": "Your accounts, live from OBDX",
+          "style": "muted"
+         }
+        },
+        {
+         "type": "AccountList",
+         "bind": {
+          "items": "accounts"
+         },
+         "on": {
+          "tap": {
+           "type": "nativeRoute",
+           "route": "/accounts"
+          }
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "my_money",
+       "title": "My money",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 16,
+         "gap": 12,
+         "scroll": true
+        },
+        "children": [
+         {
+          "type": "Text",
+          "props": {
+           "text": "Hello, {{customer.firstName}}",
+           "style": "headline"
+          }
+         },
+         {
+          "type": "Text",
+          "props": {
+           "text": "Your accounts, live from OBDX",
+           "style": "muted"
+          }
+         },
+         {
+          "type": "AccountList",
+          "bind": {
+           "items": "accounts"
+          },
+          "on": {
+           "tap": {
+            "type": "nativeRoute",
+            "route": "/accounts"
+           }
+          }
+         }
+        ]
+       },
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   }
+  },
+  "journey": {},
+  "theme": {
+   "default": {
+    "id": "default",
+    "draft": {
+     "json": {
+      "id": "default",
+      "brandName": "Demo Bank",
+      "colors": {
+       "primary": "#0B6E69",
+       "onPrimary": "#FFFFFF",
+       "secondary": "#1B1B1B",
+       "background": "#F3F6F6",
+       "surface": "#FFFFFF",
+       "onSurface": "#1B1B1B",
+       "muted": "#6B6B6B",
+       "success": "#1E8E3E",
+       "danger": "#C62828"
+      },
+      "radius": 14,
+      "fontFamily": "Roboto",
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "default",
+       "brandName": "Demo Bank",
+       "colors": {
+        "primary": "#0B6E69",
+        "onPrimary": "#FFFFFF",
+        "secondary": "#1B1B1B",
+        "background": "#F3F6F6",
+        "surface": "#FFFFFF",
+        "onSurface": "#1B1B1B",
+        "muted": "#6B6B6B",
+        "success": "#1E8E3E",
+        "danger": "#C62828"
+       },
+       "radius": 14,
+       "fontFamily": "Roboto",
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   },
+   "premier": {
+    "id": "premier",
+    "draft": {
+     "json": {
+      "id": "premier",
+      "brandName": "Bank One Premier",
+      "colors": {
+       "primary": "#8A6D1F",
+       "onPrimary": "#FFFFFF",
+       "secondary": "#1B1B1B",
+       "background": "#F7F4EC",
+       "surface": "#FFFFFF",
+       "onSurface": "#1B1B1B",
+       "muted": "#6B6B6B",
+       "success": "#1E8E3E",
+       "danger": "#C62828"
+      },
+      "radius": 18,
+      "fontFamily": "Roboto",
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "premier",
+       "brandName": "Bank One Premier",
+       "colors": {
+        "primary": "#8A6D1F",
+        "onPrimary": "#FFFFFF",
+        "secondary": "#1B1B1B",
+        "background": "#F7F4EC",
+        "surface": "#FFFFFF",
+        "onSurface": "#1B1B1B",
+        "muted": "#6B6B6B",
+        "success": "#1E8E3E",
+        "danger": "#C62828"
+       },
+       "radius": 18,
+       "fontFamily": "Roboto",
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   },
+   "youth": {
+    "id": "youth",
+    "draft": {
+     "json": {
+      "id": "youth",
+      "brandName": "Bank One Go",
+      "colors": {
+       "primary": "#6C3CE1",
+       "onPrimary": "#FFFFFF",
+       "secondary": "#1B1B1B",
+       "background": "#F4F1FD",
+       "surface": "#FFFFFF",
+       "onSurface": "#1B1B1B",
+       "muted": "#6B6B6B",
+       "success": "#1E8E3E",
+       "danger": "#C62828"
+      },
+      "radius": 22,
+      "fontFamily": "Roboto",
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "youth",
+       "brandName": "Bank One Go",
+       "colors": {
+        "primary": "#6C3CE1",
+        "onPrimary": "#FFFFFF",
+        "secondary": "#1B1B1B",
+        "background": "#F4F1FD",
+        "surface": "#FFFFFF",
+        "onSurface": "#1B1B1B",
+        "muted": "#6B6B6B",
+        "success": "#1E8E3E",
+        "danger": "#C62828"
+       },
+       "radius": 22,
+       "fontFamily": "Roboto",
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   }
+  },
+  "assignments": {
+   "default": {
+    "id": "default",
+    "draft": {
+     "json": {
+      "id": "default",
+      "segments": {
+       "DEFAULT": {
+        "theme": "default",
+        "home": "home",
+        "menu": [
+         {
+          "label": "Offers",
+          "icon": "star",
+          "action": {
+           "type": "navigate",
+           "screen": "offers"
+          }
+         },
+         {
+          "label": "My money",
+          "icon": "wallet",
+          "action": {
+           "type": "navigate",
+           "screen": "my_money"
+          }
+         }
+        ]
+       },
+       "RETAIL": {},
+       "PREMIER": {
+        "theme": "premier"
+       },
+       "YOUTH": {
+        "theme": "youth"
+       }
+      },
+      "version": 1
+     },
+     "updatedBy": "system",
+     "updatedAt": "2026-11-17T16:40:53.526Z"
+    },
+    "versions": [
+     {
+      "version": 1,
+      "json": {
+       "id": "default",
+       "segments": {
+        "DEFAULT": {
+         "theme": "default",
+         "home": "home",
+         "menu": [
+          {
+           "label": "Offers",
+           "icon": "star",
+           "action": {
+            "type": "navigate",
+            "screen": "offers"
+           }
+          },
+          {
+           "label": "My money",
+           "icon": "wallet",
+           "action": {
+            "type": "navigate",
+            "screen": "my_money"
+           }
+          }
+         ]
+        },
+        "RETAIL": {},
+        "PREMIER": {
+         "theme": "premier"
+        },
+        "YOUTH": {
+         "theme": "youth"
+        }
+       },
+       "version": 1
+      },
+      "publishedAt": "2026-11-17T16:40:53.526Z",
+      "releaseNo": 1
+     }
+    ]
+   }
+  }
+ },
+ "segments": [
+  {
+   "code": "DEFAULT",
+   "name": "Default",
+   "fallback": null,
+   "rule": "fallback for all customers"
+  },
+  {
+   "code": "RETAIL",
+   "name": "Retail",
+   "fallback": "DEFAULT",
+   "rule": "customer.segment == RETAIL"
+  },
+  {
+   "code": "PREMIER",
+   "name": "Premier",
+   "fallback": "DEFAULT",
+   "rule": "customer.segment == PREMIER"
+  },
+  {
+   "code": "YOUTH",
+   "name": "Youth (15-21)",
+   "fallback": "DEFAULT",
+   "rule": "customer.segment == YOUTH"
+  }
+ ],
+ "features": [
+  {
+   "code": "TXN.TRANSFER.OWN",
+   "name": "Transfer to own / saved payees",
+   "kind": "txn"
+  },
+  {
+   "code": "CARD.FREEZE",
+   "name": "Freeze a card",
+   "kind": "service"
+  },
+  {
+   "code": "VIEW.STATEMENTS",
+   "name": "View statements",
+   "kind": "view"
+  }
+ ],
+ "entitlements": [
+  {
+   "id": "E1",
+   "subjectType": "segment",
+   "subjectId": "DEFAULT",
+   "feature": "TXN.TRANSFER.OWN",
+   "enabled": true,
+   "perTxnLimit": 1000,
+   "dailyLimit": 3000,
+   "currency": "KWD"
+  },
+  {
+   "id": "E2",
+   "subjectType": "segment",
+   "subjectId": "PREMIER",
+   "feature": "TXN.TRANSFER.OWN",
+   "enabled": true,
+   "perTxnLimit": 10000,
+   "dailyLimit": 50000,
+   "currency": "KWD"
+  },
+  {
+   "id": "E3",
+   "subjectType": "segment",
+   "subjectId": "YOUTH",
+   "feature": "TXN.TRANSFER.OWN",
+   "enabled": true,
+   "perTxnLimit": 50,
+   "dailyLimit": 100,
+   "currency": "KWD"
+  },
+  {
+   "id": "E4",
+   "subjectType": "segment",
+   "subjectId": "DEFAULT",
+   "feature": "CARD.FREEZE",
+   "enabled": true
+  },
+  {
+   "id": "E5",
+   "subjectType": "segment",
+   "subjectId": "DEFAULT",
+   "feature": "VIEW.STATEMENTS",
+   "enabled": true
+  }
+ ],
+ "staff": [
+  {
+   "username": "maker",
+   "name": "Mona Designer",
+   "roles": [
+    "designer",
+    "maker",
+    "csr"
+   ],
+   "active": true,
+   "passwordHash": "09691c010358e61e:6743408f6ac6976c31994787a2e441731aa19b769dd6468c0a4d15d29e489d98"
+  },
+  {
+   "username": "checker",
+   "name": "Khaled Approver",
+   "roles": [
+    "approver",
+    "csr"
+   ],
+   "active": true,
+   "passwordHash": "cc386055db669454:23ff428ef417fa5ca1435c0284f964867d7271aad2c42673d2f5253b53b27326"
+  },
+  {
+   "username": "admin",
+   "name": "Admin User",
+   "roles": [
+    "admin",
+    "designer",
+    "maker",
+    "approver",
+    "csr"
+   ],
+   "active": true,
+   "passwordHash": "3e08602f67b641b8:a8801fdda6823e3b28d55f66d04f2702a1e810e3b8c34b035c86424b1799efc9"
+  }
+ ],
+ "customers": [
+  {
+   "id": "C1001",
+   "cif": "00410012",
+   "username": "aisha",
+   "name": "Aisha Al-Sabah",
+   "firstName": "Aisha",
+   "segment": "RETAIL",
+   "email": "aisha@example.com",
+   "mobile": "+965 5000 1001",
+   "rm": "Digital desk",
+   "status": "ACTIVE",
+   "kycStatus": "VERIFIED",
+   "riskRating": "LOW",
+   "passwordHash": "a190efb035b8fd30:ba1214e5591f975b8eafa7b88dd3f8cddb6fe939c72baa0a96a25ee3ca90e84d",
+   "failedLogins": 0,
+   "devices": []
+  },
+  {
+   "id": "C1002",
+   "cif": "00410027",
+   "username": "omar",
+   "name": "Omar Haddad",
+   "firstName": "Omar",
+   "segment": "PREMIER",
+   "email": "omar@example.com",
+   "mobile": "+965 5000 1002",
+   "rm": "Sara Qasem",
+   "status": "ACTIVE",
+   "kycStatus": "VERIFIED",
+   "riskRating": "MEDIUM",
+   "passwordHash": "65775828b6fc3335:51adaac58cc51ed1dd1f08f16908279e7cf406c21fbf4c91bbcc1531abeaaa91",
+   "failedLogins": 0,
+   "devices": []
+  },
+  {
+   "id": "C1003",
+   "cif": "00410033",
+   "username": "lina",
+   "name": "Lina Mansour",
+   "firstName": "Lina",
+   "segment": "YOUTH",
+   "email": "lina@example.com",
+   "mobile": "+965 5000 1003",
+   "rm": "Digital desk",
+   "status": "ACTIVE",
+   "kycStatus": "VERIFIED",
+   "riskRating": "LOW",
+   "passwordHash": "5842fd6a6f90ad98:b54e9b6570f224804628f2c4c99a068ba9c8f777b6cf24c96643b2f4c0a3ad17",
+   "failedLogins": 0,
+   "devices": []
+  }
+ ],
+ "core": {
+  "accounts": {
+   "C1001": [
+    {
+     "id": "A-1001-1",
+     "name": "Current account",
+     "number": "...0012",
+     "type": "CURRENT",
+     "balance": 1840.25,
+     "currency": "KWD"
+    },
+    {
+     "id": "A-1001-2",
+     "name": "Savings",
+     "number": "...0049",
+     "type": "SAVINGS",
+     "balance": 6200,
+     "currency": "KWD"
+    }
+   ],
+   "C1002": [
+    {
+     "id": "A-1002-1",
+     "name": "Premier current",
+     "number": "...7781",
+     "type": "CURRENT",
+     "balance": 48210.5,
+     "currency": "KWD"
+    },
+    {
+     "id": "A-1002-2",
+     "name": "USD account",
+     "number": "...7790",
+     "type": "CURRENT",
+     "balance": 15300,
+     "currency": "USD"
+    },
+    {
+     "id": "A-1002-3",
+     "name": "Term deposit",
+     "number": "...7802",
+     "type": "DEPOSIT",
+     "balance": 100000,
+     "currency": "KWD"
+    }
+   ],
+   "C1003": [
+    {
+     "id": "A-1003-1",
+     "name": "Go account",
+     "number": "...3301",
+     "type": "CURRENT",
+     "balance": 142.75,
+     "currency": "KWD"
+    }
+   ]
+  },
+  "payees": {
+   "C1001": [
+    {
+     "id": "P1",
+     "name": "Fatma Al-Ali",
+     "account": "KW81 CBKU ...4410",
+     "bank": "CBK"
+    },
+    {
+     "id": "P2",
+     "name": "Landlord - Salmiya",
+     "account": "KW22 NBOK ...9012",
+     "bank": "NBK"
+    }
+   ],
+   "C1002": [
+    {
+     "id": "P3",
+     "name": "Haddad Trading",
+     "account": "KW55 GULB ...1120",
+     "bank": "Gulf Bank"
+    },
+    {
+     "id": "P4",
+     "name": "Nadia Haddad",
+     "account": "KW10 BBYN ...7733",
+     "bank": "Boubyan"
+    }
+   ],
+   "C1003": [
+    {
+     "id": "P5",
+     "name": "Mum",
+     "account": "KW81 CBKU ...5521",
+     "bank": "CBK"
+    }
+   ]
+  },
+  "cards": {
+   "C1001": [
+    {
+     "id": "K1",
+     "name": "Visa Debit",
+     "number": "**** 4417",
+     "status": "ACTIVE",
+     "limit": 2000,
+     "currency": "KWD"
+    }
+   ],
+   "C1002": [
+    {
+     "id": "K2",
+     "name": "Visa Infinite",
+     "number": "**** 9001",
+     "status": "ACTIVE",
+     "limit": 25000,
+     "currency": "KWD"
+    },
+    {
+     "id": "K3",
+     "name": "Debit card",
+     "number": "**** 3320",
+     "status": "ACTIVE",
+     "limit": 5000,
+     "currency": "KWD"
+    }
+   ],
+   "C1003": [
+    {
+     "id": "K4",
+     "name": "Go prepaid",
+     "number": "**** 6612",
+     "status": "ACTIVE",
+     "limit": 200,
+     "currency": "KWD"
+    }
+   ]
+  },
+  "txns": {
+   "C1001": [
+    {
+     "id": "T1",
+     "date": "2026-11-04",
+     "description": "Salary - Ministry",
+     "amount": 1450,
+     "currency": "KWD",
+     "status": "POSTED"
+    },
+    {
+     "id": "T2",
+     "date": "2026-11-03",
+     "description": "Sultan Center",
+     "amount": -38.4,
+     "currency": "KWD",
+     "status": "POSTED"
+    },
+    {
+     "id": "T3",
+     "date": "2026-11-02",
+     "description": "Talabat",
+     "amount": -6.75,
+     "currency": "KWD",
+     "status": "POSTED"
+    }
+   ],
+   "C1002": [
+    {
+     "id": "T4",
+     "date": "2026-11-05",
+     "description": "Dividend - KSE",
+     "amount": 2200,
+     "currency": "KWD",
+     "status": "POSTED"
+    },
+    {
+     "id": "T5",
+     "date": "2026-11-01",
+     "description": "Emirates",
+     "amount": -640,
+     "currency": "KWD",
+     "status": "POSTED"
+    }
+   ],
+   "C1003": [
+    {
+     "id": "T6",
+     "date": "2026-11-03",
+     "description": "Allowance",
+     "amount": 50,
+     "currency": "KWD",
+     "status": "POSTED"
+    },
+    {
+     "id": "T7",
+     "date": "2026-11-02",
+     "description": "Cinescape",
+     "amount": -4.5,
+     "currency": "KWD",
+     "status": "POSTED"
+    }
+   ]
+  }
+ },
+ "releases": [
+  {
+   "no": 1,
+   "status": "PUBLISHED",
+   "note": "Initial configuration",
+   "configVersion": 1,
+   "snapshot": {
+    "screen": {
+     "home": 1,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "changes": [],
+   "submittedBy": "system",
+   "approvedBy": "system",
+   "submittedAt": "2026-11-17T16:40:53.526Z",
+   "publishedAt": "2026-11-17T16:40:53.526Z"
+  },
+  {
+   "no": 2,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {},
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "spend-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-17T16:49:50.175Z",
+   "snapshot": {
+    "screen": {
+     "home": 2,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 2,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-17T16:50:19.015Z"
+  },
+  {
+   "no": 3,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {},
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "credit-card"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-17T16:55:12.368Z",
+   "snapshot": {
+    "screen": {
+     "home": 3,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 3,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-17T16:55:16.116Z"
+  },
+  {
+   "no": 4,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {},
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "Text",
+         "props": {
+          "text": "testing"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "credit-card"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-18T05:13:48.560Z",
+   "snapshot": {
+    "screen": {
+     "home": 4,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 4,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-18T05:14:15.902Z"
+  },
+  {
+   "no": 5,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "Text",
+         "props": {
+          "text": "testing"
+         }
+        },
+        {
+         "type": "AccountList",
+         "props": {},
+         "bind": {
+          "items": "accounts"
+         },
+         "on": {}
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "credit-card"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-18T05:54:38.677Z",
+   "snapshot": {
+    "screen": {
+     "home": 5,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 5,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-18T05:55:43.033Z"
+  },
+  {
+   "no": 6,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        },
+        {
+         "type": "AccountList",
+         "props": {}
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-18T06:00:13.469Z",
+   "snapshot": {
+    "screen": {
+     "home": 6,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 6,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-18T06:00:17.257Z"
+  },
+  {
+   "no": 7,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-18T06:00:48.267Z",
+   "snapshot": {
+    "screen": {
+     "home": 7,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 7,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-18T06:00:53.513Z"
+  }
+ ],
+ "active": {
+  "releaseNo": 7,
+  "configVersion": 7,
+  "snapshot": {
+   "screen": {
+    "home": 7,
+    "offers": 1,
+    "my_money": 1
+   },
+   "journey": {},
+   "theme": {
+    "default": 1,
+    "premier": 1,
+    "youth": 1
+   },
+   "assignments": {
+    "default": 1
+   }
+  }
+ },
+ "journeyInstances": {},
+ "transactions": [],
+ "events": [
+  {
+   "eventId": "EV-965324DB87",
+   "seq": 1,
+   "ts": "2026-11-17T16:41:52.716Z",
+   "configVersion": 1,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-1AAE2BC1BE",
+   "deviceId": "a9564666fa2cfaac0c6726e3b48935e0",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-A1E77B6226",
+   "seq": 2,
+   "ts": "2026-11-17T16:41:53.470Z",
+   "configVersion": 1,
+   "type": "ERROR",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-1AAE2BC1BE",
+   "deviceId": "a9564666fa2cfaac0c6726e3b48935e0",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "payload": {
+    "code": "UNSUPPORTED_WIDGET",
+    "message": "Unsupported widget type \"AppWidget\"",
+    "widget": "AppWidget"
+   },
+   "clientConfigVersion": 1
+  },
+  {
+   "eventId": "EV-E60525D41E",
+   "seq": 3,
+   "ts": "2026-11-17T16:41:53.613Z",
+   "configVersion": 1,
+   "type": "ERROR",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-1AAE2BC1BE",
+   "deviceId": "a9564666fa2cfaac0c6726e3b48935e0",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "payload": {
+    "code": "UNSUPPORTED_WIDGET",
+    "message": "Unsupported widget type \"AppWidget\"",
+    "widget": "AppWidget"
+   },
+   "clientConfigVersion": 1
+  },
+  {
+   "eventId": "EV-E50C0D4F79",
+   "seq": 4,
+   "ts": "2026-11-17T16:47:59.514Z",
+   "configVersion": 1,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-34549926E3",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-8A7674D4A3",
+   "seq": 5,
+   "ts": "2026-11-17T16:50:25.589Z",
+   "configVersion": 2,
+   "type": "CONFIG_APPLIED",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-34549926E3",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "payload": {
+    "configVersion": 2
+   },
+   "clientConfigVersion": 2
+  },
+  {
+   "eventId": "EV-B16A56FFEE",
+   "seq": 6,
+   "ts": "2026-11-17T16:50:25.635Z",
+   "configVersion": 2,
+   "type": "SCREEN_VIEW",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-34549926E3",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "clientConfigVersion": 2
+  },
+  {
+   "eventId": "EV-9776A6552F",
+   "seq": 7,
+   "ts": "2026-11-17T16:55:17.592Z",
+   "configVersion": 3,
+   "type": "CONFIG_APPLIED",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-34549926E3",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "payload": {
+    "configVersion": 3
+   },
+   "clientConfigVersion": 3
+  },
+  {
+   "eventId": "EV-A37067E573",
+   "seq": 8,
+   "ts": "2026-11-17T16:55:17.654Z",
+   "configVersion": 3,
+   "type": "SCREEN_VIEW",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-34549926E3",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "clientConfigVersion": 3
+  },
+  {
+   "eventId": "EV-00E8C41960",
+   "seq": 9,
+   "ts": "2026-11-18T05:55:29.749Z",
+   "configVersion": 4,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-054EBE5E10",
+   "seq": 10,
+   "ts": "2026-11-18T05:55:44.798Z",
+   "configVersion": 5,
+   "type": "CONFIG_APPLIED",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "payload": {
+    "configVersion": 5
+   },
+   "clientConfigVersion": 5
+  },
+  {
+   "eventId": "EV-D7F9BAD47B",
+   "seq": 11,
+   "ts": "2026-11-18T05:55:44.826Z",
+   "configVersion": 5,
+   "type": "SCREEN_VIEW",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "clientConfigVersion": 5
+  },
+  {
+   "eventId": "EV-1F55EB139F",
+   "seq": 12,
+   "ts": "2026-11-18T06:00:18.592Z",
+   "configVersion": 6,
+   "type": "CONFIG_APPLIED",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "payload": {
+    "configVersion": 6
+   },
+   "clientConfigVersion": 6
+  },
+  {
+   "eventId": "EV-1DFB65DC4F",
+   "seq": 13,
+   "ts": "2026-11-18T06:00:18.623Z",
+   "configVersion": 6,
+   "type": "SCREEN_VIEW",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "clientConfigVersion": 6
+  },
+  {
+   "eventId": "EV-7D960CB9B1",
+   "seq": 14,
+   "ts": "2026-11-18T06:00:54.957Z",
+   "configVersion": 7,
+   "type": "CONFIG_APPLIED",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "payload": {
+    "configVersion": 7
+   },
+   "clientConfigVersion": 7
+  },
+  {
+   "eventId": "EV-1596606350",
+   "seq": 15,
+   "ts": "2026-11-18T06:00:54.982Z",
+   "configVersion": 7,
+   "type": "SCREEN_VIEW",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-CA4FF73F0F",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "source": "client",
+   "platform": "web",
+   "appVersion": "1.0.0",
+   "screen": "home",
+   "clientConfigVersion": 7
+  }
+ ],
+ "sessions": [
+  {
+   "id": "S-1AAE2BC1BE",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "a9564666fa2cfaac0c6726e3b48935e0",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1"
+   ],
+   "startedAt": "2026-11-17T16:41:52.716Z"
+  },
+  {
+   "id": "S-34549926E3",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "dc0e187f4599c91d35665b1471d04e3b",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1",
+    "AppWidget@1"
+   ],
+   "startedAt": "2026-11-17T16:47:59.514Z"
+  },
+  {
+   "id": "S-CA4FF73F0F",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "1f2afb5fc7f6ddf8308ec5c440a84f9d",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1",
+    "AppWidget@1"
+   ],
+   "startedAt": "2026-11-18T05:55:29.748Z"
+  }
+ ],
+ "audit": [
+  {
+   "ts": "2026-11-17T16:42:38.801Z",
+   "actor": "maker",
+   "action": "STAFF_LOGIN",
+   "entity": "maker",
+   "detail": {},
+   "hash": "61bfd62f30d775e1db46b7c6",
+   "prevHash": "GENESIS"
+  },
+  {
+   "ts": "2026-11-17T16:49:46.809Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "9d348007c50fb3ad5a74b706",
+   "prevHash": "61bfd62f30d775e1db46b7c6"
+  },
+  {
+   "ts": "2026-11-17T16:49:50.175Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:2",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "f45e7b9040d1074a16d091d7",
+   "prevHash": "9d348007c50fb3ad5a74b706"
+  },
+  {
+   "ts": "2026-11-17T16:50:11.610Z",
+   "actor": "checker",
+   "action": "STAFF_LOGIN",
+   "entity": "checker",
+   "detail": {},
+   "hash": "e7bfb9345a5261f2c2d704f5",
+   "prevHash": "f45e7b9040d1074a16d091d7"
+  },
+  {
+   "ts": "2026-11-17T16:50:19.015Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:2",
+   "detail": {
+    "configVersion": 2
+   },
+   "hash": "341234db56fff966cc554a0b",
+   "prevHash": "e7bfb9345a5261f2c2d704f5"
+  },
+  {
+   "ts": "2026-11-17T16:55:07.965Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "429fea795115b161128633b3",
+   "prevHash": "341234db56fff966cc554a0b"
+  },
+  {
+   "ts": "2026-11-17T16:55:12.368Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:3",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "a325f739586cee247d0dac35",
+   "prevHash": "429fea795115b161128633b3"
+  },
+  {
+   "ts": "2026-11-17T16:55:16.116Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:3",
+   "detail": {
+    "configVersion": 3
+   },
+   "hash": "4e2ba1992d4a30dfbcc6c7ba",
+   "prevHash": "a325f739586cee247d0dac35"
+  },
+  {
+   "ts": "2026-11-18T05:12:16.054Z",
+   "actor": "maker",
+   "action": "STAFF_LOGIN",
+   "entity": "maker",
+   "detail": {},
+   "hash": "702d19d0947f2f5c2c6ed045",
+   "prevHash": "4e2ba1992d4a30dfbcc6c7ba"
+  },
+  {
+   "ts": "2026-11-18T05:13:41.316Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "0019669111dc234bdd7e85ec",
+   "prevHash": "702d19d0947f2f5c2c6ed045"
+  },
+  {
+   "ts": "2026-11-18T05:13:48.560Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:4",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "37ee92f93b243773bdde9cfb",
+   "prevHash": "0019669111dc234bdd7e85ec"
+  },
+  {
+   "ts": "2026-11-18T05:14:10.104Z",
+   "actor": "checker",
+   "action": "STAFF_LOGIN",
+   "entity": "checker",
+   "detail": {},
+   "hash": "dea17ece537f6d204341eb8c",
+   "prevHash": "37ee92f93b243773bdde9cfb"
+  },
+  {
+   "ts": "2026-11-18T05:14:15.903Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:4",
+   "detail": {
+    "configVersion": 4
+   },
+   "hash": "a0501ea40ddd96fb6ea03677",
+   "prevHash": "dea17ece537f6d204341eb8c"
+  },
+  {
+   "ts": "2026-11-18T05:15:00.256Z",
+   "actor": "maker",
+   "action": "STAFF_LOGIN",
+   "entity": "maker",
+   "detail": {},
+   "hash": "1f169c046d4a98a5f559a922",
+   "prevHash": "a0501ea40ddd96fb6ea03677"
+  },
+  {
+   "ts": "2026-11-18T05:18:24.903Z",
+   "actor": "admin",
+   "action": "STAFF_LOGIN",
+   "entity": "admin",
+   "detail": {},
+   "hash": "cb8fe03faf960f0bdb6ed3bf",
+   "prevHash": "1f169c046d4a98a5f559a922"
+  },
+  {
+   "ts": "2026-11-18T05:48:29.622Z",
+   "actor": "maker",
+   "action": "STAFF_LOGIN",
+   "entity": "maker",
+   "detail": {},
+   "hash": "f86c787b2172a628717fffcf",
+   "prevHash": "cb8fe03faf960f0bdb6ed3bf"
+  },
+  {
+   "ts": "2026-11-18T05:54:35.239Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "e1c27ce640ca8ea6e019c116",
+   "prevHash": "f86c787b2172a628717fffcf"
+  },
+  {
+   "ts": "2026-11-18T05:54:38.677Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:5",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "9ff64e0e5708165bf6b6e07d",
+   "prevHash": "e1c27ce640ca8ea6e019c116"
+  },
+  {
+   "ts": "2026-11-18T05:54:50.081Z",
+   "actor": "checker",
+   "action": "STAFF_LOGIN",
+   "entity": "checker",
+   "detail": {},
+   "hash": "816b4db1333eeb76fe82fef0",
+   "prevHash": "9ff64e0e5708165bf6b6e07d"
+  },
+  {
+   "ts": "2026-11-18T05:55:43.033Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:5",
+   "detail": {
+    "configVersion": 5
+   },
+   "hash": "9133433aaaa95b8faf50438c",
+   "prevHash": "816b4db1333eeb76fe82fef0"
+  },
+  {
+   "ts": "2026-11-18T06:00:10.603Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "7ccc253dc985e64103055cad",
+   "prevHash": "9133433aaaa95b8faf50438c"
+  },
+  {
+   "ts": "2026-11-18T06:00:13.469Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:6",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "11b240e84902ede59f1223a0",
+   "prevHash": "7ccc253dc985e64103055cad"
+  },
+  {
+   "ts": "2026-11-18T06:00:17.257Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:6",
+   "detail": {
+    "configVersion": 6
+   },
+   "hash": "2f87ee612eff52a01d52ac8e",
+   "prevHash": "11b240e84902ede59f1223a0"
+  },
+  {
+   "ts": "2026-11-18T06:00:45.655Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "65587c90b7c5a6e2d29e0603",
+   "prevHash": "2f87ee612eff52a01d52ac8e"
+  },
+  {
+   "ts": "2026-11-18T06:00:48.267Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:7",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "ca18a805d85f020f9256e4df",
+   "prevHash": "65587c90b7c5a6e2d29e0603"
+  },
+  {
+   "ts": "2026-11-18T06:00:53.513Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:7",
+   "detail": {
+    "configVersion": 7
+   },
+   "hash": "0f871de8a71a8ef8fd7a7619",
+   "prevHash": "ca18a805d85f020f9256e4df"
+  }
+ ],
+ "seq": 15
+}

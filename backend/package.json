@@ -1,0 +1,16 @@
+{
+  "name": "dxp-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DXP digital banking framework - reference backend, console and web simulator",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "reset": "node src/server.js --reset-only",
+    "test": "node test/smoke.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

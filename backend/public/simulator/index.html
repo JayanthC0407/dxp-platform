@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DXP device simulator</title>
+<script src="/shared/renderer.js"></script>
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;gap:40px;background:#e9ecef;font:14px Roboto,system-ui,sans-serif}
+  .phone{width:390px;height:800px;border-radius:44px;background:#111;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,.25);position:relative}
+  .screen{width:100%;height:100%;border-radius:34px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+  .bar{display:flex;align-items:center;gap:8px;padding:14px 16px 8px;background:var(--bg);font-weight:600}
+  .bar .title{flex:1;font-size:15px}.bar button{border:0;background:none;font-size:20px;cursor:pointer;color:var(--on)}
+  .live{font-size:11px;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:5px}.dot{width:8px;height:8px;border-radius:50%;background:#bbb}.dot.on{background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+  .body{flex:1;overflow:auto;position:relative}.body>.dx-col{min-height:100%;box-sizing:border-box}
+  .nav{display:flex;background:var(--surface);border-top:1px solid rgba(0,0,0,.06);padding:6px 0 14px}
+  .nav button{flex:1;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted);cursor:pointer;padding:6px}
+  .nav button .i{font-size:18px}.nav button.on{color:var(--p);font-weight:600}
+  .toast{position:absolute;left:16px;right:16px;bottom:90px;background:#222;color:#fff;padding:12px 14px;border-radius:12px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none}.toast.show{opacity:1}
+  .flash{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 3px #22c55e;border-radius:34px;opacity:0;transition:opacity .6s}.flash.show{opacity:1}
+  .login{flex:1;display:flex;flex-direction:column;justify-content:center;padding:28px;gap:14px}
+  .login h1{margin:0 0 8px;font-size:26px;color:var(--p)}
+  .side{width:340px;font-size:13px;color:#333}.side h3{margin:0 0 8px}.side code{background:#fff;padding:1px 5px;border-radius:4px}
+  .log{background:#fff;border-radius:10px;padding:10px;height:420px;overflow:auto;font:12px ui-monospace,monospace}
+  .log div{padding:3px 0;border-bottom:1px solid #f0f0f0}.loading{padding:40px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="phone"><div class="screen dx-root" id="app"></div></div>
+<div class="side">
+  <h3>DXP device simulator</h3>
+  <p>A browser build of the runtime contract the Flutter app implements. Log in as <code>aisha</code> (Retail), <code>omar</code> (Premier) or <code>lina</code> (Youth), password <code>1234</code>.</p>
+  <p>Then change a screen, theme or menu in the <a href="/console/" target="_blank">console</a>, submit a release and approve it as a different user: this screen updates within a second or two, with no reload.</p>
+  <div class="log" id="log"></div>
+</div>
+<script>
+const API = '/api/app/v1';
+const RUNTIME = '1.0.0';
+const WIDGETS = ['Column','Row','Card','Text','Button','Banner','BalanceCard','AccountList','TxnList','QuickActions','TextField','AmountField','SelectList','OtpInput','ReviewSummary','ResultPanel','Divider','Spacer'].map(w => w + '@1');
+const app = document.getElementById('app');
+DXP.injectCss();
+const S = { token: null, customer: null, manifest: null, cache: { screens: {}, journeys: {} }, stack: [], journey: null, live: false, events: [], deviceId: localStorage.getItem('dxp.device') || ('WEB-' + Math.random().toString(36).slice(2, 10)) };
+localStorage.setItem('dxp.device', S.deviceId);
+const { h } = DXP;
+const log = (m) => { const l = document.getElementById('log'); l.prepend(h('div', {}, new Date().toLocaleTimeString() + '  ' + m)); };
+
+async function api(path, opts = {}) {
+  const r = await fetch(API + path, { ...opts, headers: { 'content-type': 'application/json', ...(S.token ? { authorization: 'Bearer ' + S.token } : {}) }, body: opts.body ? JSON.stringify(opts.body) : undefined });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 401 && S.token) { logout(true); throw new Error('Session ended'); }
+  if (!r.ok) throw new Error((j.error && j.error.message) || 'Request failed');
+  return j;
+}
+function track(type, extra = {}) { S.events.push({ type, ts: new Date().toISOString(), configVersion: S.manifest && S.manifest.configVersion, ...extra }); if (S.events.length >= 20) flush(); }
+async function flush() { if (!S.events.length || !S.token) return; const batch = S.events.splice(0); try { await api('/events', { method: 'POST', body: { events: batch } }); } catch { S.events.unshift(...batch); } }
+setInterval(flush, 3000);
+function toast(msg) { const t = app.querySelector('.toast'); if (!t) return; t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2600); }
+
+// ---------- login ----------
+function showLogin(err) {
+  DXP.applyTheme(app, { colors: { primary: '#0B6E69', background: '#F3F6F6', surface: '#fff', onSurface: '#1b1b1b', muted: '#6b6b6b', onPrimary: '#fff' }, radius: 14 });
+  const u = h('input', { class: 'dx-input', placeholder: 'Username (aisha / omar / lina)', value: 'aisha' });
+  const p = h('input', { class: 'dx-input', type: 'password', placeholder: 'Password', value: '1234' });
+  const btn = h('button', { class: 'dx-btn dx-btn-primary' }, 'Log in');
+  btn.onclick = () => login(u.value, p.value);
+  app.replaceChildren(h('div', { class: 'login' }, h('h1', {}, 'Bank One'), h('div', { class: 'dx-text dx-muted' }, 'Sign in to your account'), u, p, err ? h('div', { style: { color: '#C62828' } }, err) : null, btn), h('div', { class: 'toast' }));
+}
+async function login(username, password) {
+  try {
+    const r = await api('/auth/login', { method: 'POST', body: { username, password, deviceId: S.deviceId, platform: 'web', runtime: RUNTIME, widgets: WIDGETS } });
+    S.token = r.accessToken; S.customer = r.customer;
+    log(`Logged in as ${r.customer.name} (${r.customer.segment})`);
+    await loadManifest();
+    S.stack = [{ screen: S.manifest.home }];
+    connectLive();
+    render();
+  } catch (e) { showLogin(e.message); }
+}
+async function logout(silent) {
+  if (!silent) { await flush(); try { await api('/auth/logout', { method: 'POST' }); } catch {} }
+  S.token = null; S.journey = null; S.stack = []; if (S.es) S.es.close(); S.live = false; showLogin(silent ? 'Your session ended. Please log in again.' : null);
+}
+
+// ---------- config ----------
+async function loadManifest() {
+  const m = await api('/manifest');
+  const old = S.manifest;
+  S.manifest = m;
+  for (const [id, hash] of Object.entries(m.screens)) if (S.cache.screens[id] && S.cache.screens[id].hash !== hash) delete S.cache.screens[id];
+  for (const [id, hash] of Object.entries(m.journeys)) if (S.cache.journeys[id] && S.cache.journeys[id].hash !== hash) delete S.cache.journeys[id];
+  DXP.applyTheme(app, m.theme);
+  if (old && old.configVersion !== m.configVersion) log(`Config v${old.configVersion} → v${m.configVersion} applied`);
+  track('CONFIG_APPLIED', { payload: { configVersion: m.configVersion } });
+}
+async function getScreen(id) {
+  const hash = S.manifest.screens[id];
+  if (!hash) throw new Error(`Screen "${id}" is not available`);
+  if (S.cache.screens[id] && S.cache.screens[id].hash === hash) return S.cache.screens[id].json;
+  const json = await api('/screens/' + id);
+  S.cache.screens[id] = { hash, json };
+  return json;
+}
+async function getJourney(id) {
+  const hash = S.manifest.journeys[id];
+  if (!hash) throw new Error('This service is not available for your account');
+  if (S.cache.journeys[id] && S.cache.journeys[id].hash === hash) return S.cache.journeys[id].json;
+  const json = await api('/journeys/' + id);
+  S.cache.journeys[id] = { hash, json };
+  return json;
+}
+
+// ---------- live channel ----------
+function connectLive(delay = 2000) {
+  if (S.es) S.es.close();
+  const es = new EventSource(`${API}/live?token=${encodeURIComponent(S.token)}`);
+  S.es = es;
+  es.addEventListener('hello', (e) => { S.live = true; updateLive(); const v = JSON.parse(e.data).configVersion; if (S.manifest && v > S.manifest.configVersion) onPublished(); });
+  es.addEventListener('config.published', (e) => { log('Live: config.published ' + e.data); onPublished(); });
+  es.addEventListener('session.revoked', () => { log('Live: session revoked'); logout(true); });
+  es.onerror = () => { S.live = false; updateLive(); es.close(); if (S.token) setTimeout(() => connectLive(Math.min(delay * 2, 30000)), delay); };
+}
+async function onPublished() {
+  await loadManifest();
+  const flash = app.querySelector('.flash'); if (flash) { flash.classList.add('show'); setTimeout(() => flash.classList.remove('show'), 900); }
+  if (!S.journey) render(); // journeys keep their version until they end
+  else { updateLive(); DXP.applyTheme(app, S.manifest.theme); }
+}
+function updateLive() { const el = app.querySelector('.live'); if (el) el.replaceChildren(h('span', { class: 'dot' + (S.live ? ' on' : '') }), `v${S.manifest ? S.manifest.configVersion : '-'}`); }
+
+// ---------- actions ----------
+async function act(a, ctx) {
+  track('UI_ACTION', { screen: current().screen, payload: { action: a.type, target: a.screen || a.journey } });
+  switch (a.type) {
+    case 'navigate': S.stack.push({ screen: a.screen }); return render();
+    case 'back': if (S.journey) return journeyBack(); if (S.stack.length > 1) S.stack.pop(); return render();
+    case 'startJourney': return startJourney(a.journey);
+    case 'next': return journeyNext();
+    case 'finish': return endJourney('JOURNEY_COMPLETED');
+    case 'cancelJourney': return endJourney('JOURNEY_ABANDONED');
+    case 'setState': (S.journey ? S.journey.state : {})[a.key] = DXP.interp(a.value, ctx); return render();
+    case 'refresh': return render();
+    case 'openUrl': if (/^https:\/\//.test(a.url)) window.open(a.url, '_blank'); return;
+    case 'toast': return toast(DXP.interp(a.message, ctx));
+    case 'logout': return logout();
+    case 'nativeRoute': return toast(`Opens native screen ${a.route} in the host app`);
+    default: track('ERROR', { payload: { code: 'UNKNOWN_ACTION', action: a.type } });
+  }
+}
+const current = () => S.journey ? { screen: S.journey.def.steps[S.journey.step].screen } : S.stack[S.stack.length - 1];
+
+// ---------- journeys ----------
+async function startJourney(id) {
+  try {
+    const def = await getJourney(id);
+    const r = await api(`/journeys/${id}/instances`, { method: 'POST', body: {} });
+    S.journey = { def, iid: r.instanceId, step: def.start, state: {}, history: [] };
+    track('JOURNEY_STARTED', { journey: { id, instance: r.instanceId, step: def.start } });
+    log(`Journey ${id} v${def.version} started`);
+    render();
+  } catch (e) { toast(e.message); }
+}
+async function journeyNext() {
+  const J = S.journey; const step = J.def.steps[J.step];
+  if (!step.next) return;
+  J.history.push(J.step);
+  await goStep(step.next);
+}
+async function goStep(name) {
+  const J = S.journey; const step = J.def.steps[name];
+  if (step.task) {
+    renderLoading();
+    const r = await api(`/journeys/instances/${J.iid}/tasks/${step.task}`, { method: 'POST', body: { state: J.state, idempotencyKey: `${J.iid}:${name}` } }).catch(e => ({ ok: false, error: { message: e.message }, next: step.onError, state: J.state }));
+    J.state = r.state || J.state;
+    track('JOURNEY_STEP', { journey: { id: J.def.id, instance: J.iid, step: name }, payload: { ok: r.ok, code: r.error && r.error.code } });
+    J.step = r.next;
+    render();
+    if (!r.ok) toast(r.error.message);
+    return;
+  }
+  J.step = name;
+  track('JOURNEY_STEP', { journey: { id: J.def.id, instance: J.iid, step: name } });
+  render();
+}
+function journeyBack() {
+  const J = S.journey;
+  if (J.def.steps[J.step].terminal || !J.history.length) return endJourney('JOURNEY_ABANDONED');
+  J.step = J.history.pop(); render();
+}
+function endJourney(type) {
+  const J = S.journey; if (!J) return;
+  if (type === 'JOURNEY_ABANDONED' || !J.def.steps[J.step].terminal) track('JOURNEY_ABANDONED', { journey: { id: J.def.id, instance: J.iid, step: J.step } });
+  else track('JOURNEY_COMPLETED', { journey: { id: J.def.id, instance: J.iid, step: J.step } });
+  S.journey = null; S.stack = [{ screen: S.manifest.home }]; render();
+}
+
+// ---------- render ----------
+function shell(title, content, { journey = false } = {}) {
+  const bar = h('div', { class: 'bar' },
+    (journey || S.stack.length > 1) ? h('button', { onclick: () => act({ type: 'back' }, {}) }, '‹') : null,
+    h('div', { class: 'title' }, title), h('div', { class: 'live' }),
+    journey ? h('button', { onclick: () => act({ type: 'cancelJourney' }, {}) }, '×') : null);
+  const nav = journey ? null : h('div', { class: 'nav' }, (S.manifest.menu || []).map(m => h('button', { class: current().screen === m.action.screen ? 'on' : '', onclick: () => { if (m.action.type === 'navigate') { S.stack = [{ screen: m.action.screen }]; render(); } else act(m.action, {}); } }, h('span', { class: 'i' }, DXP.icon(m.icon)), m.label)));
+  app.replaceChildren(bar, h('div', { class: 'body' }, content), nav, h('div', { class: 'toast' }), h('div', { class: 'flash' }));
+  updateLive();
+}
+function renderLoading() { const b = app.querySelector('.body'); if (b) b.replaceChildren(h('div', { class: 'loading' }, 'Please wait…')); }
+let renderSeq = 0;
+async function render() {
+  const seq = ++renderSeq;
+  const cur = current();
+  try {
+    const screen = await getScreen(cur.screen);
+    const ctx = { theme: S.manifest.theme, state: S.journey ? S.journey.state : {} };
+    const loads = { customer: 'customer.profile', ...Object.fromEntries(Object.entries(screen.data || {}).map(([k, v]) => [k, v.source])) };
+    await Promise.all(Object.entries(loads).map(async ([k, src]) => { ctx[k] = await api('/data/' + src); }));
+    if (seq !== renderSeq) return;
+    const env = {
+      state: ctx.state,
+      setState: (k, v) => { ctx.state[k] = v; },
+      rerender: () => paint(),
+      act: (a, c) => act(a, c),
+      onError: (e) => track('ERROR', { screen: screen.id, payload: e }),
+    };
+    const paint = () => { const b = app.querySelector('.body'); const st = b ? b.scrollTop : 0; shell(screen.title, DXP.renderNode(screen.root, ctx, env), { journey: !!S.journey }); app.querySelector('.body').scrollTop = st; };
+    paint();
+    track('SCREEN_VIEW', { screen: screen.id, journey: S.journey ? { id: S.journey.def.id, instance: S.journey.iid, step: S.journey.step } : undefined });
+  } catch (e) { if (S.token) { shell('Error', h('div', { class: 'loading' }, e.message)); } }
+}
+showLogin();
+</script>
+</body>
+</html>
