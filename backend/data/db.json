@@ -589,7 +589,7 @@
     },
     "versions": [
      {
-      "version": 1,
+      "version": 2,
       "json": {
        "id": "home",
        "title": "Home",
@@ -606,60 +606,6 @@
           "type": "AppWidget",
           "props": {
            "name": "retail-accounts"
-          }
-         },
-         {
-          "type": "Banner",
-          "props": {
-           "title": "Personal loans made simple",
-           "text": "See your loans and what you can borrow.",
-           "tone": "promo",
-           "icon": "gift"
-          },
-          "on": {
-           "tap": {
-            "type": "nativeRoute",
-            "route": "/accounts/loans"
-           }
-          }
-         },
-         {
-          "type": "QuickActions",
-          "props": {
-           "items": [
-            {
-             "label": "Accounts",
-             "icon": "wallet",
-             "action": {
-              "type": "nativeRoute",
-              "route": "/accounts"
-             }
-            },
-            {
-             "label": "Transfer",
-             "icon": "send",
-             "action": {
-              "type": "nativeRoute",
-              "route": "/transfer"
-             }
-            },
-            {
-             "label": "Cards",
-             "icon": "card",
-             "action": {
-              "type": "nativeRoute",
-              "route": "/cards/credit"
-             }
-            },
-            {
-             "label": "Offers",
-             "icon": "star",
-             "action": {
-              "type": "navigate",
-              "screen": "offers"
-             }
-            }
-           ]
           }
          },
          {
@@ -690,6 +636,201 @@
           "type": "AppWidget",
           "props": {
            "name": "offers"
+          }
+         }
+        ]
+       },
+       "version": 2
+      },
+      "publishedAt": "2026-11-17T16:50:19.015Z",
+      "releaseNo": 2
+     },
+     {
+      "version": 3,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
+          }
+         }
+        ]
+       },
+       "version": 3
+      },
+      "publishedAt": "2026-11-17T16:55:16.115Z",
+      "releaseNo": 3
+     },
+     {
+      "version": 4,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {},
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "Text",
+          "props": {
+           "text": "testing"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
+          }
+         }
+        ]
+       },
+       "version": 4
+      },
+      "publishedAt": "2026-11-18T05:14:15.902Z",
+      "releaseNo": 4
+     },
+     {
+      "version": 5,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "Text",
+          "props": {
+           "text": "testing"
+          }
+         },
+         {
+          "type": "AccountList",
+          "props": {},
+          "bind": {
+           "items": "accounts"
+          },
+          "on": {}
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "credit-card"
           }
          }
         ]
@@ -1604,11 +1745,11 @@
   }
  ],
  "active": {
-  "releaseNo": 1,
-  "configVersion": 1,
+  "releaseNo": 8,
+  "configVersion": 8,
   "snapshot": {
    "screen": {
-    "home": 1,
+    "home": 8,
     "offers": 1,
     "my_money": 1
    },
