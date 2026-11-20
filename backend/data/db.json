@@ -523,13 +523,18 @@
          "props": {
           "name": "offers"
          }
+        },
+        {
+         "type": "AccountList",
+         "props": {},
+         "bind": {}
         }
        ]
       },
       "version": 1
      },
      "updatedBy": "maker",
-     "updatedAt": "2026-11-18T06:00:45.655Z"
+     "updatedAt": "2026-11-18T10:22:34.037Z"
     },
     "versions": [
      {
@@ -1008,6 +1013,66 @@
       },
       "publishedAt": "2026-11-18T06:00:53.513Z",
       "releaseNo": 7
+     },
+     {
+      "version": 8,
+      "json": {
+       "id": "home",
+       "title": "Home",
+       "layout": "full",
+       "data": {
+        "accounts": {
+         "source": "accounts.list"
+        }
+       },
+       "root": {
+        "type": "Column",
+        "props": {
+         "padding": 0,
+         "gap": 16
+        },
+        "children": [
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "retail-accounts"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "recent-account-transactions"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "loan-summary"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "quick-links"
+          }
+         },
+         {
+          "type": "AppWidget",
+          "props": {
+           "name": "offers"
+          }
+         },
+         {
+          "type": "AccountList",
+          "props": {},
+          "bind": {}
+         }
+        ]
+       },
+       "version": 8
+      },
+      "publishedAt": "2026-11-18T10:23:00.389Z",
+      "releaseNo": 8
      }
     ]
    },
@@ -2451,14 +2516,103 @@
    "configVersion": 7,
    "approvedBy": "checker",
    "publishedAt": "2026-11-18T06:00:53.513Z"
+  },
+  {
+   "no": 8,
+   "status": "PUBLISHED",
+   "note": "",
+   "audience": "ALL",
+   "changes": [
+    {
+     "kind": "screen",
+     "id": "home",
+     "json": {
+      "id": "home",
+      "title": "Home",
+      "layout": "full",
+      "data": {
+       "accounts": {
+        "source": "accounts.list"
+       }
+      },
+      "root": {
+       "type": "Column",
+       "props": {
+        "padding": 0,
+        "gap": 16
+       },
+       "children": [
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "retail-accounts"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "recent-account-transactions"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "loan-summary"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "quick-links"
+         }
+        },
+        {
+         "type": "AppWidget",
+         "props": {
+          "name": "offers"
+         }
+        },
+        {
+         "type": "AccountList",
+         "props": {},
+         "bind": {}
+        }
+       ]
+      },
+      "version": 1
+     },
+     "by": "maker"
+    }
+   ],
+   "submittedBy": "maker",
+   "submittedAt": "2026-11-18T10:22:38.939Z",
+   "snapshot": {
+    "screen": {
+     "home": 8,
+     "offers": 1,
+     "my_money": 1
+    },
+    "journey": {},
+    "theme": {
+     "default": 1,
+     "premier": 1,
+     "youth": 1
+    },
+    "assignments": {
+     "default": 1
+    }
+   },
+   "configVersion": 8,
+   "approvedBy": "checker",
+   "publishedAt": "2026-11-18T10:23:00.389Z"
   }
  ],
  "active": {
-  "releaseNo": 7,
-  "configVersion": 7,
+  "releaseNo": 8,
+  "configVersion": 8,
   "snapshot": {
    "screen": {
-    "home": 7,
+    "home": 8,
     "offers": 1,
     "my_money": 1
    },
@@ -2714,6 +2868,65 @@
    "appVersion": "1.0.0",
    "screen": "home",
    "clientConfigVersion": 7
+  },
+  {
+   "eventId": "EV-F7FD4A0690",
+   "seq": 16,
+   "ts": "2026-11-18T10:48:48.950Z",
+   "configVersion": 8,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-8FC3D6EA30",
+   "deviceId": "e95c3fe7d004fbfb13e33e0eaf3dc847",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-AEBAE3F1F2",
+   "seq": 17,
+   "ts": "2026-11-18T11:50:02.843Z",
+   "configVersion": 8,
+   "type": "SESSION_LOGOUT",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-8FC3D6EA30",
+   "source": "server"
+  },
+  {
+   "eventId": "EV-457016F479",
+   "seq": 18,
+   "ts": "2026-11-18T11:50:14.912Z",
+   "configVersion": 8,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-83B1C09C6A",
+   "deviceId": "e95c3fe7d004fbfb13e33e0eaf3dc847",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-5F8A54E6B4",
+   "seq": 19,
+   "ts": "2026-11-18T11:58:14.086Z",
+   "configVersion": 8,
+   "type": "SESSION_LOGIN",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-71EBAAEE47",
+   "deviceId": "ea4afa7373e256965f29dc6ff1fa46cd",
+   "source": "server",
+   "platform": "web",
+   "appVersion": "1.0.0"
+  },
+  {
+   "eventId": "EV-D542A29446",
+   "seq": 20,
+   "ts": "2026-11-18T12:37:04.426Z",
+   "configVersion": 8,
+   "type": "SESSION_LOGOUT",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "sessionId": "S-71EBAAEE47",
+   "source": "server"
   }
  ],
  "sessions": [
@@ -2796,6 +3009,89 @@
     "AppWidget@1"
    ],
    "startedAt": "2026-11-18T05:55:29.748Z"
+  },
+  {
+   "id": "S-8FC3D6EA30",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "e95c3fe7d004fbfb13e33e0eaf3dc847",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1",
+    "AppWidget@1"
+   ],
+   "startedAt": "2026-11-18T10:48:48.949Z",
+   "endedAt": "2026-11-18T11:50:02.841Z"
+  },
+  {
+   "id": "S-83B1C09C6A",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "e95c3fe7d004fbfb13e33e0eaf3dc847",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1",
+    "AppWidget@1"
+   ],
+   "startedAt": "2026-11-18T11:50:14.912Z"
+  },
+  {
+   "id": "S-71EBAAEE47",
+   "customerId": "u_526975a37d16bd31e87e694cd7c3ed45b6ce7f06081f23c33153f98c84cf2482",
+   "segment": "RETAIL",
+   "userType": "RETAIL",
+   "deviceId": "ea4afa7373e256965f29dc6ff1fa46cd",
+   "platform": "web",
+   "runtime": "1.0.0",
+   "widgets": [
+    "Column@1",
+    "Row@1",
+    "Card@1",
+    "Text@1",
+    "Button@1",
+    "Banner@1",
+    "BalanceCard@1",
+    "AccountList@1",
+    "TxnList@1",
+    "QuickActions@1",
+    "ReviewSummary@1",
+    "ResultPanel@1",
+    "Divider@1",
+    "Spacer@1",
+    "AppWidget@1"
+   ],
+   "startedAt": "2026-11-18T11:58:14.086Z",
+   "endedAt": "2026-11-18T12:37:04.426Z"
   }
  ],
  "audit": [
@@ -3068,7 +3364,58 @@
    },
    "hash": "0f871de8a71a8ef8fd7a7619",
    "prevHash": "ca18a805d85f020f9256e4df"
+  },
+  {
+   "ts": "2026-11-18T10:14:22.346Z",
+   "actor": "maker",
+   "action": "STAFF_LOGIN",
+   "entity": "maker",
+   "detail": {},
+   "hash": "3d58f557de44d917fd5f51b6",
+   "prevHash": "0f871de8a71a8ef8fd7a7619"
+  },
+  {
+   "ts": "2026-11-18T10:22:34.037Z",
+   "actor": "maker",
+   "action": "DRAFT_SAVED",
+   "entity": "screen:home",
+   "detail": {},
+   "hash": "b122ec77038f813fd4f80e90",
+   "prevHash": "3d58f557de44d917fd5f51b6"
+  },
+  {
+   "ts": "2026-11-18T10:22:38.939Z",
+   "actor": "maker",
+   "action": "RELEASE_SUBMITTED",
+   "entity": "release:8",
+   "detail": {
+    "items": [
+     "screen:home"
+    ]
+   },
+   "hash": "3db3ae03ee4e42c60f01a010",
+   "prevHash": "b122ec77038f813fd4f80e90"
+  },
+  {
+   "ts": "2026-11-18T10:22:55.088Z",
+   "actor": "checker",
+   "action": "STAFF_LOGIN",
+   "entity": "checker",
+   "detail": {},
+   "hash": "bfb21819edc5a6ee91c2f8b6",
+   "prevHash": "3db3ae03ee4e42c60f01a010"
+  },
+  {
+   "ts": "2026-11-18T10:23:00.390Z",
+   "actor": "checker",
+   "action": "RELEASE_PUBLISHED",
+   "entity": "release:8",
+   "detail": {
+    "configVersion": 8
+   },
+   "hash": "3ef496472b3ad78b8bb08c79",
+   "prevHash": "bfb21819edc5a6ee91c2f8b6"
   }
  ],
- "seq": 15
+ "seq": 20
 }
