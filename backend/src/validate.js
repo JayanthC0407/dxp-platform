@@ -2,6 +2,10 @@
 const ACTIONS = ['navigate', 'back', 'startJourney', 'next', 'finish', 'cancelJourney', 'setState', 'refresh', 'openUrl', 'toast', 'logout', 'nativeRoute'];
 // CONTRACT-OBDX §7: the Demo Bank app's route table for obdx-1. Keep in step with the app.
 const NATIVE_ROUTES = ['/home', '/transfer', '/accounts', '/accounts/loans', '/accounts/term-deposits', '/cards/credit', '/bills'];
+// CONTRACT-OBDX §6: data sources the app resolves (against OBDX). Keep in step with the app.
+const DATA_SOURCES = ['customer.profile', 'accounts.list', 'txn.history', 'cards.list', 'payees.list'];
+// CONTRACT-OBDX §2, §3: a minimum app version is a plain x.y.z.
+const VERSION = /^\d+\.\d+\.\d+$/;
 const URL_ALLOW =[/^https:\/\/([a-z0-9-]+\.)*bankone\.example(\/|$)/i, /^https:\/\/([a-z0-9-]+\.)*profinch\.com(\/|$)/i];
 
 function checkAction(a, where, refs, errors) {
@@ -18,9 +22,16 @@ function checkScreen(json, widgets, refs) {
   if (!json || typeof json !== 'object') return ['screen must be a JSON object'];
   if (!json.id) errors.push('screen.id is required');
   if (!json.root) errors.push('screen.root is required');
+  if (json.minAppVersion !== undefined && !VERSION.test(String(json.minAppVersion))) errors.push(`screen.minAppVersion "${json.minAppVersion}" must look like 1.2.3`);
+  for (const [alias, d] of Object.entries(json.data || {})) {
+    const source = d && typeof d === 'object' ? d.source : d;
+    if (!DATA_SOURCES.includes(source)) errors.push(`data.${alias}: source "${source}" is not one the app provides (${DATA_SOURCES.join(', ')})`);
+  }
   const byType = Object.fromEntries(widgets.map(w => [w.type, w]));
   const walk = (n, path) => {
     if (!n || typeof n !== 'object') return errors.push(`${path}: node must be an object`);
+    const minV = n.visibleIf && n.visibleIf.minAppVersion;
+    if (minV !== undefined && !VERSION.test(String(minV))) errors.push(`${path}: visibleIf.minAppVersion "${minV}" must look like 1.2.3`);
     const w = byType[n.type];
     if (!w) return errors.push(`${path}: widget "${n.type}" is not in the registry`);
     if (w.status !== 'active') errors.push(`${path}: widget "${n.type}" is ${w.status}`);
@@ -70,4 +81,4 @@ function checkTheme(json) {
   return errors;
 }
 
-module.exports = { checkScreen, checkJourney, checkTheme, ACTIONS, NATIVE_ROUTES };
+module.exports = { checkScreen, checkJourney, checkTheme, ACTIONS, NATIVE_ROUTES, DATA_SOURCES };
