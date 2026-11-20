@@ -70,7 +70,8 @@ function customerAuth(req, res, next) {
   const db = store.get();
   const sess = p && p.typ === 'app' && db.sessions.find(s => s.id === p.sid && !s.endedAt);
   if (!sess) return fail(res, 401, 'UNAUTHORIZED', 'Platform session expired.');
-  req.customer = { id: sess.customerId, segment: sess.segment, status: 'ACTIVE' };
+  // appVersion: what the app sent at the handshake, for minAppVersion (CONTRACT-OBDX §2, §3).
+  req.customer = { id: sess.customerId, segment: sess.segment, status: 'ACTIVE', appVersion: sess.runtime };
   req.session = sess; next();
 }
 function staffAuth(...roles) {

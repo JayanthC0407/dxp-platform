@@ -9,6 +9,8 @@ Fork of the DXP prototype backend and console, changed to the
 | App login | `POST /api/app/v1/auth/login` removed. The app opens a platform session with `POST /api/app/v1/session` after its OBDX login (header `X-DXP-App-Key`, body: userType, segment, opaque userRef). Retail only |
 | Customer data | None. `/data/{source}` and server-side journey tasks are gone from the App API. The app resolves data from OBDX |
 | `nativeRoute` | Checked at publish against the app's route table (`src/validate.js`, `NATIVE_ROUTES`) |
+| Data sources | A screen's `data` must name a source the app provides (`DATA_SOURCES` in `src/validate.js`), checked at publish |
+| `minAppVersion` | On a screen or in a block's `visibleIf`: apps older than that version (sent at the handshake) do not receive it (`src/resolver.js`). The console preview sees everything |
 | Seed | Demo Bank screens: `home` (the whole Retail Home body, `layout: full`, starting as today's Home), `offers`, `my_money`; menu entries Offers and My money |
 | `AppWidget` | New palette entry: places one of the app's own Home widgets by name (`APP_WIDGETS` in `src/seed.js`, checked at publish) |
 | Studio preview | `public/app` is the Demo Bank app's own preview build (`scripts/build_dxp_preview.sh` in the app repo); the prototype's is in `public/app_prototype` |

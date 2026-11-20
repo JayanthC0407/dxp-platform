@@ -35,11 +35,24 @@ function publishedJson(kind, id, snapshot) {
   return v ? JSON.parse(JSON.stringify(v.json)) : null;
 }
 
+// CONTRACT-OBDX §2, §3: true when the app is at least `min` (x.y.z). An unknown
+// app version (the console preview, which has no app) sees everything.
+function appAtLeast(appVersion, min) {
+  if (!min || !appVersion) return true;
+  const a = String(appVersion).split('.').map(n => parseInt(n, 10) || 0);
+  const b = String(min).split('.').map(n => parseInt(n, 10) || 0);
+  for (let i = 0; i < 3; i++) {
+    if ((a[i] || 0) !== (b[i] || 0)) return (a[i] || 0) > (b[i] || 0);
+  }
+  return true;
+}
+
 function isVisible(rule, ctx) {
   if (!rule) return true;
   if (rule.entitlement && !ctx.entitlements[rule.entitlement]) return false;
   if (rule.segment && !rule.segment.includes(ctx.segment)) return false;
   if (rule.platform && ctx.platform && !rule.platform.includes(ctx.platform)) return false;
+  if (rule.minAppVersion && !appAtLeast(ctx.appVersion, rule.minAppVersion)) return false;
   return true;
 }
 
@@ -59,12 +72,14 @@ function filterNode(node, ctx) {
 }
 
 function ctxFor(customer, platform) {
-  return { segment: customer.segment, entitlements: resolveEntitlements(customer), platform };
+  return { segment: customer.segment, entitlements: resolveEntitlements(customer), platform, appVersion: customer.appVersion };
 }
 
 function resolveScreen(id, customer, opts = {}) {
   const json = opts.json || publishedJson('screen', id, opts.snapshot);
   if (!json) return null;
+  // A screen that needs a newer app does not exist for an older one.
+  if (!appAtLeast(customer.appVersion, json.minAppVersion)) return null;
   const ctx = ctxFor(customer, opts.platform);
   return { ...json, root: filterNode(json.root, ctx) };
 }
@@ -94,7 +109,9 @@ function manifest(customer, platform) {
   const screens = {}; const journeys = {};
   for (const sid of Object.keys(snap.screen || {})) { const s = resolveScreen(sid, customer, { platform }); if (s) screens[sid] = store.sha(s); }
   for (const jid of Object.keys(snap.journey || {})) { const j = resolveJourney(jid, customer, { platform }); if (j) journeys[jid] = store.sha(j); }
-  const menu = (asg.menu || []).filter(m => isVisible(m.visibleIf, ctx));
+  // A menu entry whose screen this app does not get (e.g. minAppVersion) is dropped with it.
+  const menu = (asg.menu || []).filter(m => isVisible(m.visibleIf, ctx) &&
+    !(m.action && m.action.type === 'navigate' && !screens[m.action.screen]));
   return {
     configVersion: db.active.configVersion,
     releaseNo: db.active.releaseNo,
