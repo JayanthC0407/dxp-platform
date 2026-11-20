@@ -1,6 +1,6 @@
 {
  "meta": {
-  "seededAt": "2026-11-18T12:14:35.640Z"
+  "seededAt": "2026-11-20T06:52:45.660Z"
  },
  "widgets": [
   {
@@ -585,7 +585,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -696,7 +696,7 @@
        },
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -772,7 +772,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -844,7 +844,7 @@
        },
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -899,7 +899,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -950,7 +950,7 @@
        },
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -980,7 +980,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -1003,7 +1003,7 @@
        "fontFamily": "Roboto",
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -1030,7 +1030,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -1053,7 +1053,7 @@
        "fontFamily": "Roboto",
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -1080,7 +1080,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -1103,7 +1103,7 @@
        "fontFamily": "Roboto",
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -1149,7 +1149,7 @@
       "version": 1
      },
      "updatedBy": "system",
-     "updatedAt": "2026-11-18T12:14:35.640Z"
+     "updatedAt": "2026-11-20T06:52:45.660Z"
     },
     "versions": [
      {
@@ -1189,7 +1189,7 @@
        },
        "version": 1
       },
-      "publishedAt": "2026-11-18T12:14:35.640Z",
+      "publishedAt": "2026-11-20T06:52:45.660Z",
       "releaseNo": 1
      }
     ]
@@ -1295,7 +1295,7 @@
     "csr"
    ],
    "active": true,
-   "passwordHash": "74e36759ec427f48:7a8a8434706dea604f38d26b37a2b6dae4037454c5d75ed90089243beb1430df"
+   "passwordHash": "88e129d9dd7e647e:585f226bc825597f857a0c71d336375e42c966b1758f727d622f266c90aa5063"
   },
   {
    "username": "checker",
@@ -1305,7 +1305,7 @@
     "csr"
    ],
    "active": true,
-   "passwordHash": "1ffe9981d6462fa3:76f0d530d2d7275819bce4040f215d266237241a0afea8bed92cd760f66fabf6"
+   "passwordHash": "a3f074fb21e94503:4f87cbf1fcbfeee5d227da046dc24c4a7940e89a5ab8b0467e979858a6d1fd34"
   },
   {
    "username": "admin",
@@ -1318,7 +1318,7 @@
     "csr"
    ],
    "active": true,
-   "passwordHash": "82f65dd975e56378:d75212c3718f3f57eac3d1d8aca5838deef827ab7779aad59561dec86929b5cc"
+   "passwordHash": "8b41a20a7f11c508:1019f2a4851bd5e274573cd17a6c50fa33b556a443b0facffcb0285d8f699f0d"
   }
  ],
  "customers": [
@@ -1335,7 +1335,7 @@
    "status": "ACTIVE",
    "kycStatus": "VERIFIED",
    "riskRating": "LOW",
-   "passwordHash": "e7fa32ede6ea6532:d28f16f5312df8024240cc5e439e910524677142cbb981b03f030891ab084f07",
+   "passwordHash": "2a182f1f38cbc8bd:df4cc92d1953436cc02e369c204000ab43e4bed934d67e149888c4e5f44f79a9",
    "failedLogins": 0,
    "devices": []
   },
@@ -1352,7 +1352,7 @@
    "status": "ACTIVE",
    "kycStatus": "VERIFIED",
    "riskRating": "MEDIUM",
-   "passwordHash": "69f9d30ad80a29a1:56f777f9e3a2e2b3527e22a99dbe8aec7f2ee72be27f33d35c063b3bbdc5153d",
+   "passwordHash": "824946da96e39285:2058017b9efdb8a0fe991fe5843e450c04c68dd1bb46a1f91b752fa131c33dcc",
    "failedLogins": 0,
    "devices": []
   },
@@ -1369,7 +1369,7 @@
    "status": "ACTIVE",
    "kycStatus": "VERIFIED",
    "riskRating": "LOW",
-   "passwordHash": "5ce273dfa0bcecfc:d981bc316eab439a0d3af59309ffff7cd26dac40c7e0130edf703ec4cec33b71",
+   "passwordHash": "fd27ced106070474:b24a9cff7b14446304012992e6d8807b801f8430a4bd732eff8bb49d297d57d8",
    "failedLogins": 0,
    "devices": []
   }
@@ -1599,8 +1599,8 @@
    "changes": [],
    "submittedBy": "system",
    "approvedBy": "system",
-   "submittedAt": "2026-11-18T12:14:35.640Z",
-   "publishedAt": "2026-11-18T12:14:35.640Z"
+   "submittedAt": "2026-11-20T06:52:45.660Z",
+   "publishedAt": "2026-11-20T06:52:45.660Z"
   }
  ],
  "active": {
@@ -1627,25 +1627,6 @@
  "transactions": [],
  "events": [],
  "sessions": [],
- "audit": [
-  {
-   "ts": "2026-11-18T12:14:44.972Z",
-   "actor": "checker",
-   "action": "STAFF_LOGIN",
-   "entity": "checker",
-   "detail": {},
-   "hash": "76a9b8bced69fd03b85e9c1e",
-   "prevHash": "GENESIS"
-  },
-  {
-   "ts": "2026-11-18T12:14:50.868Z",
-   "actor": "maker",
-   "action": "STAFF_LOGIN",
-   "entity": "maker",
-   "detail": {},
-   "hash": "40973c952ce8b17dd11acfcb",
-   "prevHash": "76a9b8bced69fd03b85e9c1e"
-  }
- ],
+ "audit": [],
  "seq": 0
 }
